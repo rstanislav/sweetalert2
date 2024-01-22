@@ -59,6 +59,7 @@
     "accessible"
   ],
   "scripts": {
+    "prepare": "npm run lib:build"
     "dev": "vite sandbox --open",
     "lint": "stylelint src/**/*.scss && eslint src cypress *.js *.ts && prettier --check src/**/*.js cypress/**/*.js *.js",
     "build": "zx tools/build.mjs",
