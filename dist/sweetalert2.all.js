@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v11.10.5
+* sweetalert2 v11.10.3
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -1805,9 +1805,9 @@
     icon.style.borderColor = params.iconColor;
     for (var _i2 = 0, _arr = ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']; _i2 < _arr.length; _i2++) {
       var sel = _arr[_i2];
-      setStyle(icon, sel, 'background-color', params.iconColor);
+      setStyle(icon, sel, 'backgroundColor', params.iconColor);
     }
-    setStyle(icon, '.swal2-success-ring', 'border-color', params.iconColor);
+    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
   };
 
   /**
@@ -2957,7 +2957,7 @@
       handleInputValidator(instance, inputValue, type);
     } else if (input && !input.checkValidity()) {
       instance.enableButtons();
-      instance.showValidationMessage(innerParams.validationMessage || input.validationMessage);
+      instance.showValidationMessage(innerParams.validationMessage);
     } else if (type === 'deny') {
       deny(instance, inputValue);
     } else {
@@ -4563,28 +4563,6 @@
     }
   };
 
-  // Dear russian users visiting russian sites. Let's have fun.
-  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|by|xn--p1ai)$/)) {
-    var now = new Date();
-    var initiationDate = localStorage.getItem('swal-initiation');
-    if (!initiationDate) {
-      localStorage.setItem('swal-initiation', "".concat(now));
-    } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
-      setTimeout(function () {
-        document.body.style.pointerEvents = 'none';
-        var ukrainianAnthem = document.createElement('audio');
-        ukrainianAnthem.src = 'https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3';
-        ukrainianAnthem.loop = true;
-        document.body.appendChild(ukrainianAnthem);
-        setTimeout(function () {
-          ukrainianAnthem.play()["catch"](function () {
-            // ignore
-          });
-        }, 2500);
-      }, 500);
-    }
-  }
-
   // Assign instance methods from src/instanceMethods/*.js to prototype
   SweetAlert.prototype.disableButtons = disableButtons;
   SweetAlert.prototype.enableButtons = enableButtons;
@@ -4621,7 +4599,7 @@
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.10.5';
+  SweetAlert.version = '11.10.3';
 
   var Swal = SweetAlert;
   // @ts-ignore
